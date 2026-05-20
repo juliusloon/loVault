@@ -55,7 +55,7 @@ color_mode: default
 
 # mathjax setting
 # note: need to install the hexo plugin for math: https://github.com/hexojs/hexo-math
-mathjax_enable: false
+mathjax_enable: true
 
 # comments: support disqus and valine
 valine: # valine setup guide: https://valine.js.org/quickstart.html
