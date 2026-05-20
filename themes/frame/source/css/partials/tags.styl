@@ -1,0 +1,48 @@
+.tags-page
+    padding-top $margin-l-1
+
+.tags-header
+    display flex
+    align-items baseline
+    gap $margin-m-2
+    margin-bottom $margin-m-2
+
+.tags-title
+    text-style(heading-h1)
+    margin 0
+
+.tags-count
+    text-style(body-default)
+    color $color-text-secondary
+
+.tags-line
+    height 1px
+    background $color-text-third
+    margin-bottom $margin-l-1
+
+.tag-cloud
+    display flex
+    flex-wrap wrap
+    gap $margin-m-2
+
+.tag-item
+    display inline-flex
+    align-items center
+    gap $margin-s-1
+    padding $margin-s-1 $margin-m-1
+    background rgba($color-text-secondary, 0.05)
+    border-radius 2px
+    text-decoration none
+    transition background 0.15s ease
+
+    &:hover
+        background rgba($color-text-secondary, 0.1)
+
+    .tag-name
+        text-style(body-default)
+        color $color-text-primary
+
+    .tag-count
+        font-size 12px
+        color $color-text-secondary
+        font-family 'Roboto Mono', monospace

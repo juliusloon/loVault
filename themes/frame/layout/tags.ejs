@@ -1,0 +1,15 @@
+<div class="tags-page">
+    <div class="tags-header">
+        <h1 class="tags-title">Tags</h1>
+        <span class="tags-count"><%= site.tags.length %> tags</span>
+    </div>
+    <div class="tags-line"></div>
+    <div class="tag-cloud">
+        <% site.tags.each(function(tag) { %>
+            <a href="<%- url_for(tag.path) %>" class="tag-item">
+                <span class="tag-name"><%= tag.name %></span>
+                <span class="tag-count"><%= tag.posts.length %></span>
+            </a>
+        <% }) %>
+    </div>
+</div>

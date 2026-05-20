@@ -1,0 +1,132 @@
+.toc-wrapper
+  position fixed
+  top: 120px
+  right: 20px
+  z-index: 100
+  font-family 'Inter', 'Noto Sans SC', helvetica, arial
+
+  &.hidden
+    display: none
+
+// Bar view (default - shows when not hovering)
+.toc-bar-view
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  gap: 11px
+  padding: 8px 0
+
+  .toc-bar-item
+    height: 4px
+    border-radius: 2px
+    background: $color-text-third
+    transition: background 0.15s ease, width 0.2s ease
+    cursor: pointer
+
+    &.active
+      background: $color-text-primary
+
+    &.h1
+      width: 30px
+
+    &.h2
+      width: 27px
+
+    &.h3
+      width: 24px
+
+    &.h4
+      width: 21px
+
+    &.h5
+      width: 18px
+
+    &.h6
+      width: 15px
+
+    &:hover
+      background: $color-text-secondary
+
+    &.active:hover
+      background: $color-text-primary
+
+// Expanded view (shows on hover)
+.toc-expanded-view
+  display: none
+  width: 240px
+  max-height: calc(100vh - 160px)
+  background: $color-background
+  border: 1px solid $color-text-third
+  border-radius: 4px
+  overflow: hidden
+
+.toc-wrapper:hover .toc-bar-view
+  display: none
+
+.toc-wrapper:hover .toc-expanded-view
+  display: block
+
+.toc-nav
+  padding: $margin-m-1 $margin-m-2
+  max-height: calc(100vh - 180px)
+  overflow-y: auto
+  overflow-x: hidden
+
+  &::-webkit-scrollbar
+    width: 4px
+
+  &::-webkit-scrollbar-track
+    background: transparent
+
+  &::-webkit-scrollbar-thumb
+    background: $color-text-third
+    border-radius: 2px
+
+.toc-list
+  list-style: none
+  margin: 0
+  padding: 0
+
+.toc-item
+  margin: 0
+
+.toc-link
+  display: block
+  padding: $margin-s-1 0
+  font-size: 14px
+  line-height: 1.5
+  color: $color-text-secondary
+  text-decoration: none
+  transition: color 0.15s ease
+  word-wrap: break-word
+  overflow-wrap: break-word
+
+  &:hover
+    color: $color-text-primary
+
+  &.active
+    color: $color-text-primary
+    font-weight: $font-weight-semibold
+
+  &.h1
+    padding-left: 0
+
+  &.h2
+    padding-left: 0.75rem
+
+  &.h3
+    padding-left: 1.5rem
+
+  &.h4
+    padding-left: 2.25rem
+
+  &.h5
+    padding-left: 3rem
+
+  &.h6
+    padding-left: 3.75rem
+
+// Responsive: hide TOC when screen is narrow
+@media (max-width: 1200px)
+  .toc-wrapper
+    display: none
