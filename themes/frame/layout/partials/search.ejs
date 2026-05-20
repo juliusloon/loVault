@@ -19,12 +19,12 @@
 
 <script>
     const searchConfig = {
-        path             : "<%=url_for(config.search.path)%>",
+        path             : "<%=url_for(theme.local_search.path || 'search.json')%>",
         top_n_per_article: "<%=theme.local_search.top_n_per_article%>",
         unescape         : "<%=theme.local_search.unescape%>",
         trigger: "<%=theme.local_search.trigger%>",
         preload: "<%=theme.local_search.preload%>"
-    }
+    };
 </script>
-<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
-<script src="/js/search.js"></script>
+<script src="<%- url_for('/js/searchdb.js') %>"></script>
+<script src="<%- url_for('/js/search.js') %>"></script>

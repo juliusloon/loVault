@@ -115,3 +115,10 @@ math:
   katex:
     css: false
 
+# Search (used by scripts/search_generator.js)
+search:
+  path: search.json
+  field: post
+  limit: 200
+  content: true
+
