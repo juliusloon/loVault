@@ -1,6 +1,8 @@
 ---
 title: Chapter-6-First-steps-to-Statistics
-date: 2026-01-31 00:00:00
+tags:
+  - PMS
+date: 2026-01-31 00:00:07
 ---
 
 #### Population $X$﻿ & Individual

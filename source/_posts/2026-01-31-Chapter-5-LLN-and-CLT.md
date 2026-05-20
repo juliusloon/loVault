@@ -1,6 +1,8 @@
 ---
 title: Chapter-5-LLN-and-CLT
-date: 2026-01-31 00:00:00
+tags:
+  - PMS
+date: 2026-01-31 00:00:06
 ---
 
 ### Law of Large Numbers

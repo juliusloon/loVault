@@ -1,6 +1,8 @@
 ---
 title: Chapter-1-Random-event-and-Probability
-date: 2026-01-31 00:00:00
+tags:
+  - PMS
+date: 2026-01-31 00:00:01
 ---
 
 #### De Morgan’s law

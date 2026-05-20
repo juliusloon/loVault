@@ -1,6 +1,8 @@
 ---
 title: Chapter-4-Numerical-characteristics
-date: 2026-01-31 00:00:00
+tags:
+  - PMS
+date: 2026-01-31 00:00:04
 ---
 
 #### Mathematical expectation

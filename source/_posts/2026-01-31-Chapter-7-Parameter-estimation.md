@@ -1,6 +1,8 @@
 ---
 title: Chapter-7-Parameter-estimation
-date: 2026-01-31 00:00:00
+tags:
+  - PMS
+date: 2026-01-31 00:00:08
 ---
 
 **Estimation**

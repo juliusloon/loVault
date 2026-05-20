@@ -1,6 +1,8 @@
 ---
 title: Chapter-2-1D-Random-variables
-date: 2026-01-31 00:00:00
+tags:
+  - PMS
+date: 2026-01-31 00:00:02
 ---
 
 #### Distribution function

@@ -1,6 +1,8 @@
 ---
 title: Column-nD-normal-random-variant
-date: 2026-01-31 00:00:00
+tags:
+  - PMS
+date: 2026-01-31 00:00:05
 ---
 
 > After Chapter 4
