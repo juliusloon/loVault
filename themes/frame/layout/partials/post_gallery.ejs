@@ -1,4 +1,14 @@
 <div class="post-gallery">
+    <div class="gallery-layout-toggle">
+        <div class="layout-pill">
+            <button class="layout-btn active" data-layout="single" aria-label="Single column view">
+                <span class="layout-label">Single</span>
+            </button>
+            <button class="layout-btn" data-layout="double" aria-label="Double column view">
+                <span class="layout-label">Double</span>
+            </button>
+        </div>
+    </div>
     <div class="post-gallery-list">
         <% page.posts.each(function (post) { %>
             <div class="post-gallery-item">
@@ -40,3 +50,4 @@
         <%- partial('partials/paginator') %>
     </div>
 </div>
+<script src="<%- url_for('/js/gallery.js') %>"></script>

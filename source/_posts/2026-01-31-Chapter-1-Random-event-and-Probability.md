@@ -16,7 +16,7 @@ $$A\cup (B\cup C) = (A \cup B)\cup C, A\cap (B\cap C) = (A\cap B)\cap C$$
 $$A(B\cup C) = (AB)\cup (AC), (AB)\cup C = (A\cup C)(B\cup C)$$
 #### Subtraction formula
 $$P(A- B) = P(A)-P(AB)$$
-specially, if $B\subset A$﻿, then $$P(A- B) = P(A)-P(B)$$﻿
+specially, if $B\subset A$, then $$P(A- B) = P(A)-P(B)$$
 #### Addition formula
 $$P(A\cup B) = P(A) +P(B)-P(AB)$$
 $$P(A\cup B \cup C) = P(A)+P(B)+P(C)-P(AB) -P(AC)-P(BC)+P(ABC)$$
@@ -40,7 +40,11 @@ $$P(A_1A_2A_3...A_n) = P(A_1)P(A_2|A_1)P(A_3|A_1A_2)...P(A_n|A_1A_2...A_{n-1})$$
 > B is previously empty, therefore its probability of balls is the **same** as A → (1)(2)(3) is 0.7 
 > (4)
 > Method 1 
-> $A_i=$ {get a red ball from B at the $i$ th chance} $B_i =$ {there are $i$ red balls in the 3 balls given from A} $$P(A_1)=\sum^3_{n=0}P(B_i)P({A_1|B_i}) = 0.7$$$$P(A_1A_2) = \sum^3_{n=0}P(B_i)P({A_1A_2|B_i}) = \frac{7}{15}$$$$P(A_2|A_1) = \frac{P(A_1A_2)}{P(A_1)} = \frac{2}{3}$$
+> $A_i=$ {get a red ball from B at the $i$ th chance} $B_i =$ {there are $i$ red balls in the 3 balls given from A} $$P(A_1)=\sum^3_{n=0}P(B_i)P({A_1|B_i}) = 0.7$$
+
+$$P(A_1A_2) = \sum^3_{n=0}P(B_i)P({A_1A_2|B_i}) = \frac{7}{15}$$
+
+$$P(A_2|A_1) = \frac{P(A_1A_2)}{P(A_1)} = \frac{2}{3}$$
 > Method 2 
 > same as we discussed in (1)~(3), B’s probability is the same as A, therefore after knowing we select out a red ball, the probability goes to $\frac{7-1}{10-1}= \frac{2}{3}$.
 
@@ -51,16 +55,16 @@ $$P(A_1A_2A_3...A_n) = P(A_1)P(A_2|A_1)P(A_3|A_1A_2)...P(A_n|A_1A_2...A_{n-1})$$
 #### Law of total probability
 $$P(A)=P(AS)=P(A(B_1\cup B_2\cup...\cup B_n))=\sum^n_{i=1}P(B_i)P(A|B_i)$$
 #### Bayes formula
-$P(B_k)$﻿ is often called **Prior probability**, as its value is presumed from experience.
-$P(B_k|A)$﻿ is often called **Posterior probability**, as we revise the value through the presence of event A.
+$P(B_k)$ is often called **Prior probability**, as its value is presumed from experience.
+$P(B_k|A)$ is often called **Posterior probability**, as we revise the value through the presence of event A.
 $$P(B_k|A)=\frac{P(B_kA)}{P(A)} = \frac{P(B_k)P(A|B_k)}{\sum^n_{i=1}{P(B_i)P(A|B_i)}}$$
 #### Incompatibility
 $$AB=\emptyset \rightarrow P(AB)=0$$not true in reverse.
 #### Independence of events
-$P(AB) = P(A)P(B) \iff$﻿ $A, B$﻿ is independent
+$P(AB) = P(A)P(B) \iff$ $A, B$ is independent
 $$\iff P(A|B)=P(A) \iff P(\bar A|B)=P(\bar A)\iff ...$$
 $$\iff P(A|B)+P(\bar{A}|\bar{B})=1$$
-$n$﻿ **events are independent of each other**
+$n$ **events are independent of each other**
 $$P(A_1)P(A_2)P(A_3)…P(A_n) = P(A_1A_2A_3…A_n)$$
-$n$﻿ **events are pairwise independent**
+$n$ **events are pairwise independent**
 $$\forall i, j \in \{ 1, 2,... ,n\},P(A_iA_j)=P(A_i)P(A_j)$$

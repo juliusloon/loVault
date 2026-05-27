@@ -6,8 +6,10 @@ date: 2026-01-31 00:00:04
 ---
 
 #### Mathematical expectation
-$$E(X) = \sum_{i}x_ip_i﻿ \text{ (discrete)} = \int^{+\infty}_{-\infty} xf(x)\text{d}x﻿\text{ (continuous)}$$$$→Y=g(X),﻿\text{ then } E(Y) = \sum_{i}g(x)p_i\text{ (discrete)}= \int^{+\infty}_{-\infty} g(x)f(x)\text{d}x﻿\text{ (continuous)}=\int ^\infty_{-\infty}f(x) \text{d}F(x) $$
-> For $E(X)$﻿ to exist, $\sum_{i}x_ip_i$﻿ must be an **absolutely convergence series**, otherwise $E(X)$﻿ would change if we alter the order of addition. This means that it must be absolutely summable. 
+$$E(X) = \sum_{i}x_ip_i \text{ (discrete)} = \int^{+\infty}_{-\infty} xf(x)\text{d}x\text{ (continuous)}$$
+
+$$→Y=g(X),\text{ then } E(Y) = \sum_{i}g(x)p_i\text{ (discrete)}= \int^{+\infty}_{-\infty} g(x)f(x)\text{d}x\text{ (continuous)}=\int ^\infty_{-\infty}f(x) \text{d}F(x) $$
+> For $E(X)$ to exist, $\sum_{i}x_ip_i$ must be an **absolutely convergence series**, otherwise $E(X)$ would change if we alter the order of addition. This means that it must be absolutely summable. 
 > Consider the random variable $X$ that $$P(X=(-1)^{k+1}k)=\frac{c}{k^2},\ k=1,2,\dots,\ c=\frac{6}{\pi^2}$$
 > **Sorting 1:** Set $x_{k}=(-1)^{k+1}k,\ p_{k}=\frac{c}{k^2}$, then$$EX=\sum^\infty_{k=1}x_{k}p_{k}=c\sum^\infty_{{k=1}}(-1)^{k+1}k\cdot \frac{1}{k^2}=c\ln2$$
 > **Leibniz's Discriminant Method**
@@ -39,7 +41,11 @@ $$E(X) = \sum_{i}x_ip_i﻿ \text{ (discrete)} = \int^{+\infty}_{-\infty} xf(x)\t
 (ii) $E(a+bX)=a+bE(X)$
 (iii) $E(X+Y)=EX+EY$
 > [!quote] Derivation of property (iii)
-> $(X,Y)\sim p(x,y)$, then $Z=:X+Y$ has a density that $$p_{Z}(z)=\int^\infty_{\infty}p(x,z-x)\text{d}x$$therefore $$E(X+Y)=\int^\infty_{-\infty}zp_{Z}(z)\text{d}z=\int^\infty_{-\infty}z\int^\infty_{-\infty}p(x,z-x)\text{d}x\text{d}z=$$$$\int^\infty_{-\infty}\int^\infty_{-\infty}(x+y)p(x,y)\text{x}\text{y}=\int^\infty_{-\infty}\int^\infty_{-\infty}xp(x,y)\text{d}x\text{d}y+\int^\infty_{-\infty}\int^\infty_{-\infty}yp(x,y)\text{d}x\text{d}y$$$$=\int^\infty_{-\infty}xp_{X}(x)\text{d}x+\int^\infty_{-\infty}xp_{Y}(y)\text{d}y=EX+EY$$
+> $(X,Y)\sim p(x,y)$, then $Z=:X+Y$ has a density that $$p_{Z}(z)=\int^\infty_{\infty}p(x,z-x)\text{d}x$$therefore $$E(X+Y)=\int^\infty_{-\infty}zp_{Z}(z)\text{d}z=\int^\infty_{-\infty}z\int^\infty_{-\infty}p(x,z-x)\text{d}x\text{d}z=$$
+
+$$\int^\infty_{-\infty}\int^\infty_{-\infty}(x+y)p(x,y)\text{x}\text{y}=\int^\infty_{-\infty}\int^\infty_{-\infty}xp(x,y)\text{d}x\text{d}y+\int^\infty_{-\infty}\int^\infty_{-\infty}yp(x,y)\text{d}x\text{d}y$$
+
+$$=\int^\infty_{-\infty}xp_{X}(x)\text{d}x+\int^\infty_{-\infty}xp_{Y}(y)\text{d}y=EX+EY$$
 
 $$
 \implies E(a_{1}X_{1}+a_{2}X_{2}+\cdots+a_{m}X_{m})=a_{1}EX_{1}+a_{2}EX_{2}+\cdots+a_{m}EX_{m}
@@ -48,13 +54,13 @@ $$
 > [!quote] e.g. $X_{1},X_{2},\cdots,X_{m}$ are non-negative, independent and identically distributed random variables, solve $$E \frac{{X_{1}+\cdots+X_{k}}}{X_{1}+\cdots+X_{m}}$$
 > $$E \frac{X_{1}}{X_{1}+\cdots+X_{m}}=E \frac{X_{2}}{X_{1}+\cdots+X_{m}}=\cdots=E \frac{X_{m}}{X_{1}+\cdots+X_{m}}$$ exist and are limited. Besides, $$1=E \frac{X_{1}+\cdots+X_{m}}{X_{1}+\cdots+X_{m}}=E \frac{X_{1}}{X_{1}+\cdots+X_{m}}+\cdots+E \frac{X_{m}}{X_{1}+\cdots+X_{m}}=m\cdot E \frac{X_{1}}{X_{1}+\cdots+X_{m}}$$Therefore, $$E \frac{X_{1}}{X_{1}+\cdots+X_{m}}=\frac{1}{m}, E \frac{X_{1}+\cdots+X_{k}}{X_{1}+\cdots+X_{m}}= \frac{k}{m}.$$
 
-$(X,Y)$﻿ is a **bivariate random variable** with density function $f(x,y)$﻿
-$Z = g(X,Y),$﻿ then $E(Z) = \sum_{i}\sum_{j}g(x_i, y_j)p_{ij}$﻿ (discrete) $= \int^{+\infty}_{-\infty}\int^{+\infty}_{-\infty}g(x, y)f(x,y)dxdy$﻿ (continuous)
-$$E(X) = \int^{+\infty}_{-\infty}\int^{+\infty}_{-\infty}xf(x,y)dxdy,E(Y) = \int^{+\infty}_{-\infty}\int^{+\infty}_{-\infty}yf(x,y)dxdy$$﻿
-$X<Y$﻿ are independent $\Longrightarrow$﻿ $X, Y$﻿ are irrelevant $\iff E(XY)=E(X)E(Y)$﻿
+$(X,Y)$ is a **bivariate random variable** with density function $f(x,y)$
+$Z = g(X,Y),$ then $E(Z) = \sum_{i}\sum_{j}g(x_i, y_j)p_{ij}$ (discrete) $= \int^{+\infty}_{-\infty}\int^{+\infty}_{-\infty}g(x, y)f(x,y)dxdy$ (continuous)
+$$E(X) = \int^{+\infty}_{-\infty}\int^{+\infty}_{-\infty}xf(x,y)dxdy,E(Y) = \int^{+\infty}_{-\infty}\int^{+\infty}_{-\infty}yf(x,y)dxdy$$
+$X<Y$ are independent $\Longrightarrow$ $X, Y$ are irrelevant $\iff E(XY)=E(X)E(Y)$
 #### Variance
 $$D(X) = Var(X) = E(X-EX)^2 = EX^2 -E^2X$$
-If $X,Y$﻿ are independent, 
+If $X,Y$ are independent, 
 $$D(XY) = E(XY)^2 - E^2(XY) = EX^2\cdot EY^2 - E^2X\cdot E^2Y$$
 
 |                 Distribution                 |        $EX$         |                               $DX$                               |
@@ -71,11 +77,15 @@ $$D(XY) = E(XY)^2 - E^2(XY) = EX^2\cdot EY^2 - E^2X\cdot E^2Y$$
 ##### Properties
 (i) $Var(a+bX)=b^2Var(X)$
 (ii) $Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)=Var(X)+Var(Y)+2(E(XY)-EX\cdot EY)$
-specially, if X, Y are independent, $$Var(X+Y)=VarX+VarY$$$$\implies X_{1},\dots,X_{m} \text{ are independent, } Var\left( \sum_{k=1}^{m} X_{k} \right)=\sum_{k=1}^{m} Var(X_{k})$$
+specially, if X, Y are independent, $$Var(X+Y)=VarX+VarY$$
+
+$$\implies X_{1},\dots,X_{m} \text{ are independent, } Var\left( \sum_{k=1}^{m} X_{k} \right)=\sum_{k=1}^{m} Var(X_{k})$$
  (iii) if $c≠EX$, then $Var(X)<E(X-c)^2$
  
 > [!quote] Proof
-> $$Var(X)=E(X-EX)^2=E(X-c-(EX-c))^2=E(X-c)^2+(EX-c)^2-2E(X-c)(EX-c)$$$$E(X-c)^2-(EX-c)^2<E(X-c)^2, c\neq EX$$
+> $$Var(X)=E(X-EX)^2=E(X-c-(EX-c))^2=E(X-c)^2+(EX-c)^2-2E(X-c)(EX-c)$$
+
+$$E(X-c)^2-(EX-c)^2<E(X-c)^2, c\neq EX$$
 
 (iv) if $Var(X)=0,$ then $P(X=EX)=1$.
 
@@ -85,9 +95,9 @@ specially, if X, Y are independent, $$Var(X+Y)=VarX+VarY$$$$\implies X_{1},\dots
 > From Chebyshev Inequality, $\forall \varepsilon>0,$ $$P(|X|>\varepsilon)\leq \frac{Var(X)}{\varepsilon^2}=0$$therefore, $$P(|X|>0)=P\left( \bigcup^\infty_{n=1}{|X|> \frac{1}{n}} \right)\leq \sum_{n=1}^{\infty} P\left( |X|> \frac{1}{n} \right)=0$$
 #### Covariance
 $$Cov(X,Y) = E[(X-EX)(Y-EY)] = EXY-EX\cdot EY$$
-> If $X,Y$﻿ are independent, $E(XY)=E(X)E(Y)$﻿, which is $E[(X-EX)(Y-EY)]= 0$﻿. therefore $Cov(X,Y)$﻿ is defined.
+> If $X,Y$ are independent, $E(XY)=E(X)E(Y)$, which is $E[(X-EX)(Y-EY)]= 0$. therefore $Cov(X,Y)$ is defined.
 ##### Properties
-(1)$$Cov(X,Y) = Cov(Y,X), Cov(X, X)=D(X)$$﻿
+(1)$$Cov(X,Y) = Cov(Y,X), Cov(X, X)=D(X)$$
 (2)$$Cov(aX+bY+c,Z) = aCov(X, Z)+bCov(Y,Z)$$
 
 > [!important]  **e.g.1 Simplify** $Cov(X+Y,X-Y)$.
@@ -100,7 +110,7 @@ $$Cov^2(X,Y) \le VarX\cdot VarY, \text{ “=” holds iff. }Y= c_1 +c_2X$$
 > Notice that $\forall t \in \mathbb{R},$ $$0\leq E(|X|+t|Y|)^2=EX^2+2tE|X||Y|+t^2EY^2$$
 > t=1, then $$[-2E(|X|\cdot|Y|)]^2\leq(EX^2+EY^2)^2$$ $$\implies 4E^2(|X|\cdot|Y|)\leq 4EX^2EY^2\leq2EX^2EY^2+E^2X^2+E^2Y^2$$
 
-$Cov(X,Y)$﻿ **with** $EX, DX$﻿
+$Cov(X,Y)$ **with** $EX, DX$
 $$E(XY)=E(X)E(Y)+Cov(X,Y)$$
 $$D(X\pm Y) = D(X)+D(Y) \pm 2Cov(X,Y)$$
 
@@ -120,11 +130,11 @@ Independence $\Leftrightarrow$ no any relation $\implies$ uncorrelated
 #### Mean Vector
 If the mathematical expectation of $X, Y$ exist, then call $$\vec{\mu}=(EX,EY)$$the mean vector.
 #### Correlation coefficient $\rho(\gamma)$
-$$\rho_{XY} = \frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}} = Cov(X^*,Y^*)=Cov(\frac{X-EX}{\sqrt{Var(X)}},\frac{Y-EY}{\sqrt{Var(Y)}})$$﻿
+$$\rho_{XY} = \frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}} = Cov(X^*,Y^*)=Cov(\frac{X-EX}{\sqrt{Var(X)}},\frac{Y-EY}{\sqrt{Var(Y)}})$$
 Notes:
 (1) $$|\rho_{XY}|\le 1$$
-(2) $$\rho_{XY} =0 \iff Cov(X,Y) =0 \iff E(XY) =E(X)E(Y) \iff D(X \pm Y) = DX+DY$$﻿
-(3) $$\rho_{XY}=\pm1 \iff (Y-EY)=\pm t_{0}(X-EX)$$where $$t_{0}=\sqrt{ \frac{VarX}{VarY} }$$﻿
+(2) $$\rho_{XY} =0 \iff Cov(X,Y) =0 \iff E(XY) =E(X)E(Y) \iff D(X \pm Y) = DX+DY$$
+(3) $$\rho_{XY}=\pm1 \iff (Y-EY)=\pm t_{0}(X-EX)$$where $$t_{0}=\sqrt{ \frac{VarX}{VarY} }$$
 > [!quote] Proof of property (3)
 > if $\gamma=1$, then $$Cov(X,Y)=\sqrt{ VarX\cdot VarY}$$
 > $$E[(X-EX)-t_{0}(Y-EY)]^2=0 \iff VarX^2-2t_{0}Cov(X,Y)+t_{0}^2VarY^2=0\iff t_{0}=\sqrt{ \frac{VarX}{VarY}. }$$
@@ -160,7 +170,9 @@ $$
 E(Y|X=x_{i})=\sum^\infty_{j=1}y_{j}P(Y=y_{j}|X=x_{i})
 $$
 > [!quote] $\xi_{1},\xi_{2},\dots,\xi_{n}$ are i.i.d. with $$P(\xi_{k}=1)=p, P(\xi_{k}=0)=1-p,$$set $S_{n}=\sum^n_{k=1}\xi_{k}$, solve $E(\xi_{k}|S_{n}=m), 0\leq m\leq n.$
-> $$E(\xi_{k}|S_{n}=m)=0\times P(\xi_{k}=0|S_{n}=m)+1\times P(\xi_{k}=1|S_{n}=m)=P(\xi_{k}=1|S_{n}=m)$$$$=\frac{P(\xi_{k=1},S_{n}=m)}{P(S_{n}=m)}=\frac{P(\xi_{k}=1)P(S_{n-1}=m-1)}{P(S_{n}=m)}=\frac{{p\cdot C^{m-1}_{n-1}p^{m-1}(1-p)^{n-m}}}{C^m_{n}p^m(1-p)^{n-m}}=\frac{m}{n}$$
+> $$E(\xi_{k}|S_{n}=m)=0\times P(\xi_{k}=0|S_{n}=m)+1\times P(\xi_{k}=1|S_{n}=m)=P(\xi_{k}=1|S_{n}=m)$$
+
+$$=\frac{P(\xi_{k=1},S_{n}=m)}{P(S_{n}=m)}=\frac{P(\xi_{k}=1)P(S_{n-1}=m-1)}{P(S_{n}=m)}=\frac{{p\cdot C^{m-1}_{n-1}p^{m-1}(1-p)^{n-m}}}{C^m_{n}p^m(1-p)^{n-m}}=\frac{m}{n}$$
 ##### (2) Continuous random variables
 $(X,Y)\sim p(x,y)$, then$$X\sim p_{X}(x)=\int^{\infty}_{-\infty}p(x,y)\text{d}y,\ \ Y\sim p_{Y}(y)=\int^{\infty}_{-\infty}p(x,y)\text{d}x$$
 Given $Y=y$, the conditional distribution of $X$ is $$P(X=x|Y=y)= \frac{p(x,y)}{p_{Y}(y)}$$
@@ -173,7 +185,9 @@ Similarly, given $X=x$, the conditional expectation of $Y$ is $$E(Y|X=x)=\int^{\
 
 #### Law of Total Expectations
 Each $y_j$ corresponds to one conditional expectation $E(X|Y=y_j)$, therefore, define a function$$g(y_{j})=E(X|Y=y_{j})\implies g(Y)=E(X|Y)$$of $Y$, therefore it is a random variable. Solve its expectation:$$
-Eg(Y)=\sum_{j=1}^{\infty}g(Y)P(Y=y_{j})=\sum_{j=1}^{\infty} \sum_{i=1}^{\infty} x_{i}P(X=x_{i}|Y=y_{j})P(Y=y_{j})=\sum_{i=1}^{\infty} x_{i}\left[ \sum_{j=1}^{\infty} P(X=x_{i}|Y=y_{j})P(Y=y_{j}) \right]$$$$=\sum_{i=1}^{\infty} x_{i}P(X=x_{i})=EX$$
+Eg(Y)=\sum_{j=1}^{\infty}g(Y)P(Y=y_{j})=\sum_{j=1}^{\infty} \sum_{i=1}^{\infty} x_{i}P(X=x_{i}|Y=y_{j})P(Y=y_{j})=\sum_{i=1}^{\infty} x_{i}\left[ \sum_{j=1}^{\infty} P(X=x_{i}|Y=y_{j})P(Y=y_{j}) \right]$$
+
+$$=\sum_{i=1}^{\infty} x_{i}P(X=x_{i})=EX$$
 Therefore, we have the law of total expectations:$$E(E(X|Y))=EX, \ \ E(E(Y|X))=EY.$$
 **Notes:** here $E(X|Y)$ is the expectation of $X$ when $Y$ has different values, therefore a function of $Y$, $X$ is smashed. Solving the function gets $Y$ smashed, too, giving a pure value which is $EX$.
 
@@ -182,7 +196,9 @@ Therefore, we have the law of total expectations:$$E(E(X|Y))=EX, \ \ E(E(Y|X))=E
 
 
 > [!quote] Suppose the number of children in a family is a random variable $X$ with mean $\mu$, and given $X=n$ for $n\geq1$, each of the $n$ children in the family is a girl with probability $p$ and a boy with probability $1-p$. What is the expected number of girls in a family? 
-> Set $G$ the number of girls in a family, then $$E(G|X=n)=np$$$$EG=\sum_{n=1}^{\infty} E(G|X=n)P(X=n)=\sum_{n=1}^{\infty} npP(X=n)=\mu p. $$
+> Set $G$ the number of girls in a family, then $$E(G|X=n)=np$$
+
+$$EG=\sum_{n=1}^{\infty} E(G|X=n)P(X=n)=\sum_{n=1}^{\infty} npP(X=n)=\mu p. $$
 #### Moment
 ##### k-order origin moment
 $$\mu_k = E(X^k)$$
@@ -197,7 +213,13 @@ $$D(X) = \nu_2$$
 
 > [!quote] e.g $X\sim P(\lambda),$ then $E|X|^k<\infty$ and $EX(X-1)\cdots(X-(k-1))=\lambda^k,\ k\geq1$
 > This property has an important role in calculating the $k$-order origin moment of Poisson distribution:
-> $$EX^2=EX(X-1)+EX$$$$EX^3=EX(X-1)(X-2)+3EX(X-1)+EX$$$$EX^4=EX(X-1)(X-2)(X-3)+6EX(X-1)(X-2)+7EX(X-1)+EX$$$$\cdots$$
+> $$EX^2=EX(X-1)+EX$$
+
+$$EX^3=EX(X-1)(X-2)+3EX(X-1)+EX$$
+
+$$EX^4=EX(X-1)(X-2)(X-3)+6EX(X-1)(X-2)+7EX(X-1)+EX$$
+
+$$\cdots$$
 
 #### Discussion: Is the distribution of a random variable uniquely determined by its moment?
 For $X,Y$ are random variables with$$EX^k=EY^k, \ k\geq1$$do we have$$X \overset{d}=Y?$$
@@ -227,10 +249,10 @@ $$then $$X \overset{d}=Y$$
 ##### (k+l)-order mixed origin moment
 $$E(X^kY^l)$$
 ##### (k+l)-order mixed central moment
-$$E[(X-EX)^k(Y-EY)^l]$$﻿
-$Cov(X,Y) =(1+1)$﻿-order mixed central moment
+$$E[(X-EX)^k(Y-EY)^l]$$
+$Cov(X,Y) =(1+1)$-order mixed central moment
 
-##### Upper $\alpha$﻿ quantile
+##### Upper $\alpha$ quantile
 $$1-F(x_{\alpha}) = \int^{+\infty}_{x_\alpha} f(x)dx =\alpha$$
 the area of the RIGHT part of the density function divided by $x=\alpha$
 #### Eigenfunction
@@ -265,7 +287,9 @@ $$
 > Fix $\varepsilon>0$, if $X\sim F(x)$, then $\exists M>0,$$$
 P(|X|>M)=1-F(M)+F(-M)\leq \frac{\varepsilon}{4}
 $$Geometry easily gives that $$|e^{ihx}-1|\leq |hx|<2$$
-> Therefore, $$|\varphi(t+h)-\varphi(t)|\leq E|(e^{ ihX }-1)|=\int^{\infty}_{-\infty}|e^{ ihx}-1|\text{d}F(x)=\int_{|x|>M}|e^{ ihx }-1|\text{d}F(x)+\int_{|x|<M}|e^{ ihx }-1|\text{d}F(x)$$$$\int_{|x|>M}2\,\text{d}F(x)+\int_{|x|\leq M}|e^{ ihx }-1|\text{d}F(x)\leq 2\cdot \frac{\varepsilon}{4}+hM$$
+> Therefore, $$|\varphi(t+h)-\varphi(t)|\leq E|(e^{ ihX }-1)|=\int^{\infty}_{-\infty}|e^{ ihx}-1|\text{d}F(x)=\int_{|x|>M}|e^{ ihx }-1|\text{d}F(x)+\int_{|x|<M}|e^{ ihx }-1|\text{d}F(x)$$
+
+$$\int_{|x|>M}2\,\text{d}F(x)+\int_{|x|\leq M}|e^{ ihx }-1|\text{d}F(x)\leq 2\cdot \frac{\varepsilon}{4}+hM$$
 > Choose a $\delta$ small enough that $\delta M< \frac{\varepsilon}{2}$, therefore, $|h|\leq\delta$,$$
 |\varphi(t+h)-\varphi(t)|<2\cdot \frac{\varepsilon}{4}+hM<\varepsilon$$
 
@@ -346,7 +370,9 @@ $$This is in fact a necessary and sufficient condition.
 > Set $$\Sigma=\begin{pmatrix}1 & \rho\\ \rho & 1\end{pmatrix}$$Perform a linear transformation $$\begin{pmatrix}U\\V\end{pmatrix}=\Sigma^{-1/2}\begin{pmatrix}X \\ Y \end{pmatrix}=\begin{pmatrix}1 & \rho\\ \rho & 1\end{pmatrix}^{-1/2}\begin{pmatrix}X \\ Y \end{pmatrix}$$therefore, $(U,V)\sim N(0,1;0,1;0)$, i.e. $U,V$ are independent, $$\phi_{U,V}(t_{1},t_{2})=e^{ -\frac 12 (t_{1}^2+t_{2}^2) }=e^{ -\frac 12 (t_{1},t_{2})(t_{1},t_{2})^T }$$
 > Therefore, $$\phi_{X,Y}(t_{1},t_{2})=Ee^{ i(t_{1},t_{2})(X,Y)^T}=Ee^{ i(t_{1},t_{2})\Sigma^{1/2}(U,V)^T}$$
 Set $$
-(s_{1},s_{2})=(t_{1},t_{2})\Sigma^{1/2}, \ (s_{1},s_{2})^T=\Sigma^{1/2}\begin{pmatrix}t_{1}\\t_{2}\end{pmatrix}$$then$$\phi_{X,Y}(t_{1},t_{2})=Ee^{ i(s_{1},s_{2})(U,V)^T }=Ee^{ is_{1}U+is_{2}V }=Ee^{ is_{1}U }Ee^{ is_{2}V }=e^{ -\frac 12(s_{1}^2+s_{2}^2)}$$$$=e^{ -\frac 12 (s_{1},s_{2})(s_{1},s_{2})^T }=e^{ -\frac 12 (t_{1},t_{2})\Sigma^{1/2}\Sigma^{1/2}(t_{1},t_{2})^T}=e^{ - \frac 12 (t_{1},t_{2})\Sigma (t_{1},t_{2})^T }$$
+(s_{1},s_{2})=(t_{1},t_{2})\Sigma^{1/2}, \ (s_{1},s_{2})^T=\Sigma^{1/2}\begin{pmatrix}t_{1}\\t_{2}\end{pmatrix}$$then$$\phi_{X,Y}(t_{1},t_{2})=Ee^{ i(s_{1},s_{2})(U,V)^T }=Ee^{ is_{1}U+is_{2}V }=Ee^{ is_{1}U }Ee^{ is_{2}V }=e^{ -\frac 12(s_{1}^2+s_{2}^2)}$$
+
+$$=e^{ -\frac 12 (s_{1},s_{2})(s_{1},s_{2})^T }=e^{ -\frac 12 (t_{1},t_{2})\Sigma^{1/2}\Sigma^{1/2}(t_{1},t_{2})^T}=e^{ - \frac 12 (t_{1},t_{2})\Sigma (t_{1},t_{2})^T }$$
 
 
 > [!quote] $\mathbf{\xi}=(\xi_{1},\xi_{2},\xi_{3})'\sim N(\mathbf{a},\mathbf{B}),$ where $\mathbf{a}=(a_{1},a_{2},a_{3})',\mathbf{B}=(b_{ij})_{3\times3}.$ Perform transformation $$\left\{\begin{array} l \eta_{1} = \frac{x_{i}}{2}-\xi_{2}+\frac{\xi_{3}}{2} \\ \eta_{2}= - \frac{\xi_{1}}{2}-\frac{\xi_{3}}{2} \end{array}\right.$$Solve for the distribution of $\mathbf{\eta}=(\eta_{1},\eta_{2})^T$.
@@ -403,7 +429,9 @@ Set $$
 > \end{pmatrix}.$$
 > **最终结果：**$\mathbf{\eta} = (\eta_1, \eta_2){\prime}$的分布为：
 > $$\mathbf{\eta} \sim N\left(\mathbf{\mu}\eta, \mathbf{\Sigma}\eta\right),$$
-> 其中：$$\mathbf{\mu}\eta = \begin{pmatrix}\frac{a_1 + a_3}{2} - a_2 \\-\frac{a_1 + a_3}{2}\end{pmatrix},$$$$\mathbf{\Sigma}\eta = \mathbf{C}\mathbf{B}\mathbf{C}^T= \begin{pmatrix}
+> 其中：$$\mathbf{\mu}\eta = \begin{pmatrix}\frac{a_1 + a_3}{2} - a_2 \\-\frac{a_1 + a_3}{2}\end{pmatrix},$$
+
+$$\mathbf{\Sigma}\eta = \mathbf{C}\mathbf{B}\mathbf{C}^T= \begin{pmatrix}
 0.25b{11} - 1.0b_{12} + 0.5b_{13} + b_{22} - 1.0b_{23} + 0.25b_{33} & -0.25b_{11} + 0.5b_{12} - 0.5b_{13} + 0.5b_{23} - 0.25b_{33} \\
 -0.25b_{11} + 0.5b_{12} - 0.5b_{13} + 0.5b_{23} - 0.25b_{33} & 0.25b_{11} + 0.5b_{13} + 0.25b_{33}
 \end{pmatrix}.$$

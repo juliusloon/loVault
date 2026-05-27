@@ -107,6 +107,52 @@ blockquote
         border-left-color #6a9955
         background rgba(106, 153, 85, 0.1)
 
+    &.callout-question
+        border-left-color #9b72cf
+        background rgba(155, 114, 207, 0.1)
+
+    &.callout-important
+        border-left-color #d9730d
+        background rgba(217, 115, 13, 0.1)
+
+    &.callout-caution
+        border-left-color #f5a623
+        background rgba(245, 166, 35, 0.1)
+
+    &.callout-abstract
+    &.callout-summary
+    &.callout-tldr
+        border-left-color #0db7d6
+        background rgba(13, 183, 214, 0.1)
+
+    &.callout-todo
+        border-left-color #4a90d9
+        background rgba(74, 144, 217, 0.1)
+
+    &.callout-example
+        border-left-color #6a9955
+        background rgba(106, 153, 85, 0.1)
+
+    &.callout-bug
+        border-left-color #f14c4c
+        background rgba(241, 76, 76, 0.1)
+
+    &.callout-fail
+    &.callout-failure
+        border-left-color #f14c4c
+        background rgba(241, 76, 76, 0.1)
+
+    // Ensure markdown emphasis inside callouts renders correctly
+    .callout-content
+        strong
+            text-style(body-bold)
+        em
+            text-style(body-italic)
+        code
+            text-style(code-default)
+        a
+            underline-motion(link)
+
 .post-content
     li
         text-style(body-default)

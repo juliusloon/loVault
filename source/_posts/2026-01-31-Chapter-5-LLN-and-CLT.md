@@ -24,8 +24,8 @@ $$
 P\left( \omega:| \frac{S_{n}(\omega)}{n}-p|>\varepsilon \right)=\sum_{k:| \frac{k}{n} - p|>\varepsilon}\left( \begin{array} a n \\k\end{array}\right) p^k(1-p)^{n-k}\to{0},\ n\to \infty
 $$
 #### Convergence in probability - II
-$$Y_n \overset{P}\longrightarrow c$$﻿
-$\epsilon - n$﻿ language: $$\{Y_n, n\ge 1\}, \exists c, \forall \epsilon >0, \lim_{n \rightarrow +\infty} P\{ |Y_n - c| \ge \epsilon \} =0$$
+$$Y_n \overset{P}\longrightarrow c$$
+$\epsilon - n$ language: $$\{Y_n, n\ge 1\}, \exists c, \forall \epsilon >0, \lim_{n \rightarrow +\infty} P\{ |Y_n - c| \ge \epsilon \} =0$$
 ##### Limit Uniqueness
 If  $X_{n}\xrightarrow{ P }X, \ Y_{n}\xrightarrow{ P }Y$, then $$P(X=Y)=1$$
 
@@ -58,45 +58,45 @@ f(X_{n})\xrightarrow{ P }f(X)$$
 > Note that $$\log \eta _{n}=\frac{1}{n}\sum_{k=1}^{n} \log \xi _{k}\xrightarrow{ P }E\log \xi _{1}=\int_{0}^{1}  \log x\, \text{d}x =1 \ \text{- Khinchine CLT}$$therefore $$\eta _{n}=e^{ \log \eta _{n} }\xrightarrow{ P }e^{-1}$$
 
 > [!NOTE] Comparison between **Convergence** and **Convergence in Probability**
-> Convergence: as $n$﻿ grows, $Y_n$﻿ gets closer to $c$﻿ ($c+1 → c+0.5 → c+0.1 → … → c+\epsilon$﻿);  
-> Convergence in Probability: as $n$﻿ grows, the probability that $Y_n$﻿ is not so close to $c$﻿ gets lower 
-> ($P\{Y_n\text{ is not so close}\} = 0.1 →0.05 →0.01 → …→\epsilon$﻿)$$X_n \overset{P}→ a, Y_n \overset{P} → b, \Rightarrow g(X_n, Y_n) \overset{P} →g(a,b) (n \rightarrow +\infty)$$
+> Convergence: as $n$ grows, $Y_n$ gets closer to $c$ ($c+1 → c+0.5 → c+0.1 → … → c+\epsilon$);  
+> Convergence in Probability: as $n$ grows, the probability that $Y_n$ is not so close to $c$ gets lower 
+> ($P\{Y_n\text{ is not so close}\} = 0.1 →0.05 →0.01 → …→\epsilon$)$$X_n \overset{P}→ a, Y_n \overset{P} → b, \Rightarrow g(X_n, Y_n) \overset{P} →g(a,b) (n \rightarrow +\infty)$$
 
 #### Markov Inequality
-for random variant $Y$﻿, if $\mu_k$﻿ exists, then 
+for random variant $Y$, if $\mu_k$ exists, then 
 $$\forall \epsilon >0, \ P\{|Y| ≥ \epsilon\} ≤\frac{E(|Y|^k)}{\epsilon^k} \iff P\{|Y|\le \epsilon\}\ge1-\frac{E(|Y|)^k}{\epsilon^k}$$
 
 > [!quote] Proof
->  let $Z = \left \{ \begin{array} {lcr} \epsilon & , |Y|\ge \epsilon \\ 0 & , |Y|<\epsilon \end{array} \right.$﻿, obviously $0≤Z≤|Y|$﻿, 
-> then $0≤Z^k≤|Y|^k$﻿, $E(Z^k)≤E(|Y|^k)$﻿ while $E(Z^k) = 0+ \epsilon^k \cdot P\{|Y|≥\epsilon\},$﻿ 
-> therefore $P\{|Y| ≥ \epsilon\} ≤\frac{E(|Y|^k)}{\epsilon^k}$﻿.
+>  let $Z = \left \{ \begin{array} {lcr} \epsilon & , |Y|\ge \epsilon \\ 0 & , |Y|<\epsilon \end{array} \right.$, obviously $0≤Z≤|Y|$, 
+> then $0≤Z^k≤|Y|^k$, $E(Z^k)≤E(|Y|^k)$ while $E(Z^k) = 0+ \epsilon^k \cdot P\{|Y|≥\epsilon\},$ 
+> therefore $P\{|Y| ≥ \epsilon\} ≤\frac{E(|Y|^k)}{\epsilon^k}$.
 #### Chebyshev Inequality
-for random variant $X$﻿, if $E(X)\equiv\mu, D(X)\equiv\sigma^2$﻿ exists, then
+for random variant $X$, if $E(X)\equiv\mu, D(X)\equiv\sigma^2$ exists, then
 $$\forall \epsilon >0, P\{|X-\mu|\ge \epsilon\}\le\frac{\sigma^2}{\epsilon^2}\iff P\{ |X-\mu|\le \epsilon\}\ge 1-\frac{\sigma^2}{\epsilon^2}.$$
 > This inequality gives an important measure of the probability of a random variant getting into or out of the area near its expectation.
 
 **Extension:** If $f$ is a monotonically non-decreasing positive function, then $$P(x>\varepsilon)\leq P(f(X)\geq f(\varepsilon))\leq\frac{Ef(X)}{f(\varepsilon)}$$
 
 #### (Weak) Law of large numbers
-Random variant sequence $\{ Y_i, i≥1\}$﻿ obeys law of large numbers, if $\exists$ a constant sequence $\{c_n, n\ge 1\},$ s.t. $$\forall\epsilon>0, \lim_{n\rightarrow +\infty}P\{|\frac{1}{n}\sum^n_{i=1}Y_i-c_n|\ge\epsilon\}=0$$that is
+Random variant sequence $\{ Y_i, i≥1\}$ obeys law of large numbers, if $\exists$ a constant sequence $\{c_n, n\ge 1\},$ s.t. $$\forall\epsilon>0, \lim_{n\rightarrow +\infty}P\{|\frac{1}{n}\sum^n_{i=1}Y_i-c_n|\ge\epsilon\}=0$$that is
 $$\frac{1}{n}\sum^n_{i=1}Y_i -c_n\overset{P}\longrightarrow 0, n\rightarrow+\infty$$
-specially, if $c_n = c, n=1,2,...$﻿, then
+specially, if $c_n = c, n=1,2,...$, then
 $$\frac{1}{n}\sum^n_{i=1}Y_i \overset{P}\longrightarrow c, n\rightarrow+\infty$$
 #### Bernoulli’s law of large numbers
 
-random variants $X_1, X_2, …, X_n, ...$﻿ are independent and obey $B(1,p)$﻿, then 
+random variants $X_1, X_2, …, X_n, ...$ are independent and obey $B(1,p)$, then 
 $$\frac{1}{n}\sum^n_{i=1} X_i \overset{P}\longrightarrow p.$$
-in other words, in an $n$﻿-fold Bernoulli trial, event $A$﻿ with $P(A) = p$﻿ happens $n_A$﻿ times, then 
+in other words, in an $n$-fold Bernoulli trial, event $A$ with $P(A) = p$ happens $n_A$ times, then 
 $$\forall \epsilon >0, |\frac{n_A}{n}|\overset{P}\longrightarrow p.$$
 > [!quote] Proof
-> $n_A \sim B(n, p),$﻿ then $$E(\frac{n_A}{n})= \frac{1}{n}E(n_A) = p, D(\frac{n_A}{n})=\frac{1}{n^2}D(n_A)=\frac{pq}{n}.$$ 
+> $n_A \sim B(n, p),$ then $$E(\frac{n_A}{n})= \frac{1}{n}E(n_A) = p, D(\frac{n_A}{n})=\frac{1}{n^2}D(n_A)=\frac{pq}{n}.$$ 
 > from Chebyshev Inequality, 
-> $$P\{ |\frac{n_A}{n} -p|\ge \epsilon\} \le \frac{pq}{n\epsilon^2}\rightarrow 0 (n\rightarrow +\infty)$$﻿
+> $$P\{ |\frac{n_A}{n} -p|\ge \epsilon\} \le \frac{pq}{n\epsilon^2}\rightarrow 0 (n\rightarrow +\infty)$$
 > which means 
 > $$|\frac{n_A}{n}|\overset{P}\longrightarrow p.$$
 #### Khinchine’s law of large numbers
-random variants $X_1, X_2, …, X_n, ...$﻿ are **independent** and **identically distributed** with $EX_i =\mu, i=1,2,…$﻿, then $$\frac{1}{n}\sum^{n}_{i=1}X_i\overset{P}\longrightarrow \mu.$$﻿
-in other words, for independent and identically distributed $\{ X_i\}$﻿, their arithmetic mean converge to $EX_i$﻿ in probability.
+random variants $X_1, X_2, …, X_n, ...$ are **independent** and **identically distributed** with $EX_i =\mu, i=1,2,…$, then $$\frac{1}{n}\sum^{n}_{i=1}X_i\overset{P}\longrightarrow \mu.$$
+in other words, for independent and identically distributed $\{ X_i\}$, their arithmetic mean converge to $EX_i$ in probability.
 
 > [!quote] e.g. $\xi_{1},\xi_{2},\dots,$is a set of independent random variables. The distribution of $\xi_{k}$ are as follows: $\xi_{1} \equiv 0;\ k\geq2,$ $$P(\xi_{k}=k)=P(\xi_{k}=-k)=\frac{1}{2k\log k}$$ $$P(\xi_{k}=0)=1- \frac{1}{k\log k}$$ Set $S_{n}=\sum^n_{k=2}\xi_{k}$, prove: $$\frac{S_{n}}{n}\overset{P}\longrightarrow 0$$
 > In fact, $E\xi_{k}=0, \ Var(\xi_{k})= \frac{k}{\log k},$
@@ -111,7 +111,7 @@ in other words, for independent and identically distributed $\{ X_i\}$﻿, their
 > Therefore, $$\frac{Var(S_{n})}{n^2}\to0,\ n\to \infty.$$
 
 #### Chebyshev’s law of large numbers
-random variants $\xi _{k},\ k\geq1$﻿ have a **bounded variance** $E\xi _{k}=\mu _{k}$(n.e. Cauchy distribution), if $$
+random variants $\xi _{k},\ k\geq1$ have a **bounded variance** $E\xi _{k}=\mu _{k}$(n.e. Cauchy distribution), if $$
 \frac{Var(S_{n})}{n^{2}}\to 0, \ n\to \infty
 $$then $$
 \frac{S_{n}}{n} \xrightarrow{ P } \frac{1}{n} \sum_{k=1}^{n} \mu _{k},\ n\to \infty$$
@@ -129,12 +129,14 @@ P(S_{n}=k)\to \frac{\lambda^ke^{-\lambda}}{k!},\ n\to \infty.
 $$
 This leads to the Poisson distribution.
 > [!quote] Proof
-> $$P(S_{n}=k)= \frac{n!}{k!(n-k)!}p_{n}^k(1-p_{n})^{n-k}$$$$=\frac{1}{k!}\cdot n(n-1)\cdots(n-k+1)\cdot \frac{1}{n^k}\cdot(np_{n})^k\cdot\left( 1- \frac{\lambda}{n}+o\left( \frac{1}{n} \right) \right)^{n-k}\to \frac{\lambda^k}{k!}e^{-\lambda}, \ n\to \infty.$$
+> $$P(S_{n}=k)= \frac{n!}{k!(n-k)!}p_{n}^k(1-p_{n})^{n-k}$$
+
+$$=\frac{1}{k!}\cdot n(n-1)\cdots(n-k+1)\cdot \frac{1}{n^k}\cdot(np_{n})^k\cdot\left( 1- \frac{\lambda}{n}+o\left( \frac{1}{n} \right) \right)^{n-k}\to \frac{\lambda^k}{k!}e^{-\lambda}, \ n\to \infty.$$
 #### De Moivre-Laplace Central limit theorem
-random variants $X_1, X_2, …, X_n, ...$﻿ are independent and obey $B(1,p)$﻿, then 
+random variants $X_1, X_2, …, X_n, ...$ are independent and obey $B(1,p)$, then 
 $$\sum^n_{i=1}X_i \overset{\cdot}\sim N(np, np(1-p))\iff\bar X =\frac{1}{n}\sum^n_{i=1}X_i \overset{\cdot}\sim N(p, \frac{p(1-p)}{n})$$
-in other words, in an $n$﻿-fold Bernoulli trial, event $A$﻿ with $P(A) = p$﻿ happens $n_A$﻿ times, then when $n$﻿ is big enough, $$n_A \overset{\cdot}\sim N(np, np(1-p)).$$﻿
-> Extension: $X\sim P(\lambda),$﻿ then $X\overset{\cdot}\sim N(\lambda, \lambda)$﻿.
+in other words, in an $n$-fold Bernoulli trial, event $A$ with $P(A) = p$ happens $n_A$ times, then when $n$ is big enough, $$n_A \overset{\cdot}\sim N(np, np(1-p)).$$
+> Extension: $X\sim P(\lambda),$ then $X\overset{\cdot}\sim N(\lambda, \lambda)$.
 ##### Derivation
 (i) $p=\frac{1}{2}$ - De Moivre
 (ii) $p \ne \frac{1}{2}$ - Laplace
@@ -202,7 +204,11 @@ $$
 X_{n}\xrightarrow{ d }c\iff X_{n} \xrightarrow{ P }c
 $$
 > [!quote] Proof
-> $$P(X_{n}\leq c+\varepsilon)\to1 \implies P(X_{n}>c+\varepsilon)\to 0, \ n \to \infty$$$$P(X_{n}\leq  c-\varepsilon)\to 0 \implies P(X_{n}<c-\varepsilon)\to 0, \ n \to \infty$$$$\implies P(|X_{n}-c|>\varepsilon)\to 0 \implies X_{n}\xrightarrow{ P }c.$$
+> $$P(X_{n}\leq c+\varepsilon)\to1 \implies P(X_{n}>c+\varepsilon)\to 0, \ n \to \infty$$
+
+$$P(X_{n}\leq  c-\varepsilon)\to 0 \implies P(X_{n}<c-\varepsilon)\to 0, \ n \to \infty$$
+
+$$\implies P(|X_{n}-c|>\varepsilon)\to 0 \implies X_{n}\xrightarrow{ P }c.$$
 > 
 
 ##### Judgement Formula: Levy's Continuity Theorem
@@ -295,7 +301,7 @@ $$f(X_{n})\xrightarrow{ d }f(X)$$
 > $$\phi _{n}(t)\to \phi(t),\,U_{n}\xrightarrow{ d }U.$$
 #### Generalisation of De Moivre-Laplace CLT
 ##### 1: Levy-Lindeberg’s Central Limit Theorem
-random variants $X_1, X_2, …, X_n, ...$﻿ are independent and **identically distributed** with 
+random variants $X_1, X_2, …, X_n, ...$ are independent and **identically distributed** with 
 $$EX_i =\mu,DX_i=\sigma^2, i=1,2,…$$
 then
 $$\sum^n_{i=1}X_i \xrightarrow{ d } N(n\mu, n\sigma^2)\iff\bar X=\frac{1}{n}\sum^n_{i=1}X_i \xrightarrow{ d } N(\mu, \frac{\sigma^2}{n})$$

@@ -1,38 +1,95 @@
 // hexo-filter-callouts: Convert Obsidian-style callout syntax to HTML
-// Syntax: > [!quote] content (same line) or > [!quote]\n> content (next line)
-// Also protects $$...$$ math blocks from HTML escaping in marked
+// Syntax:
+//   > [!type] Title
+//   > Content line 1
+//   > Content line 2
+//
+// Collapsible:
+//   > [!type]- Title
+//   > [!type]+ Title
+//
+// Also protects $...$ and $$...$$ math blocks from markdown parsing.
 
 'use strict';
 
-const calloutRegex = /^>\s*\[!([^\]]+)\]([^\n]*)\n((?:>[^\n]*\n?)+)/gm;
 const { basename, dirname, extname, join } = require('path').posix;
 
-// Protect $$...$$ math blocks by temporarily replacing with HTML comments
-// This prevents marked from HTML-escaping < > characters inside math blocks
-function protectMathBlocks(content) {
-  return content.replace(/\$\$([\s\S]+?)\$\$/g, (match, math) => {
-    return `<!-- MATH_BLOCK_${Buffer.from(math).toString('base64')}MATH_END -->`;
-  });
+// ------------------------------------------------------------------
+// Math protection (before markdown rendering)
+//
+// Math placeholders use a plain-text format (MATHBLK_/MATHINL_ prefix +
+// URL-safe base64 without padding) so that hexo-renderer-marked does NOT
+// treat them as HTML comments (which would disable markdown rendering for
+// the entire paragraph) and does NOT HTML-encode any characters.
+// ------------------------------------------------------------------
+
+function encodeMath(math) {
+  // Use encodeURIComponent to avoid smartypants converting '--' to EN DASH
+  return encodeURIComponent(math);
 }
 
-function unprotectMathBlocks(content) {
-  return content.replace(/<!-- MATH_BLOCK_([A-Za-z0-9+/=]+)MATH_END -->/g, (match, b64) => {
-    const math = Buffer.from(b64, 'base64').toString('utf8');
-    return `$$${math}$$`;
-  });
+function decodeMath(str) {
+  return decodeURIComponent(str);
 }
 
-// Convert markdown image syntax to <img> with resolved path
+const MATH_BLOCK_PREFIX = 'MATHBLK_';
+const MATH_INLINE_PREFIX = 'MATHINL_';
+const MATH_BLOCK_SUFFIX = '#';
+const MATH_INLINE_SUFFIX = '#';
+
+function protectMath(content) {
+  // Protect $$...$$ display math first
+  content = content.replace(/\$\$([\s\S]+?)\$\$/g, (match, math) => {
+    return `${MATH_BLOCK_PREFIX}${encodeMath(math)}${MATH_BLOCK_SUFFIX}`;
+  });
+
+  // Protect $...$ inline math
+  content = content.replace(
+    /(?<![\\$])\$(?!\$)([^\n$]+?)\$(?!\$)/g,
+    (match, math) => {
+      const trimmed = math.trim();
+      // Skip plain currency: $100, $1.50, $ 100
+      if (/^\$?\d+([.,]\d+)?$/.test(trimmed)) return match;
+      return `${MATH_INLINE_PREFIX}${encodeMath(math)}${MATH_INLINE_SUFFIX}`;
+    }
+  );
+
+  return content;
+}
+
+function unprotectMath(content) {
+  // Restore $$...$$
+  content = content.replace(
+    new RegExp(`${MATH_BLOCK_PREFIX}([^#]+)${MATH_BLOCK_SUFFIX}`, 'g'),
+    (match, enc) => {
+      const math = decodeMath(enc);
+      return `$$${math}$$`;
+    }
+  );
+
+  // Restore $...$
+  content = content.replace(
+    new RegExp(`${MATH_INLINE_PREFIX}([^#]+)${MATH_INLINE_SUFFIX}`, 'g'),
+    (match, enc) => {
+      const math = decodeMath(enc);
+      return `$${math}$`;
+    }
+  );
+
+  return content;
+}
+
+// ------------------------------------------------------------------
+// Callout detection & conversion
+// ------------------------------------------------------------------
+
+const calloutRegex = /^>\s*\[!([^\]]+)\]([+-]?)\s*([^\n]*)(?:\n((?:>.*(?:\n|$))+))?/gm;
+
 function resolveImagesInContent(content, postPath, hexo) {
   return content.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, href) => {
-    // Skip external URLs and anchors
-    if (/^(#|\/\/|http(s)?:)/.test(href)) {
-      return match;
-    }
+    if (/^(#|\/\/|http(s)?:)/.test(href)) return match;
 
     let resolvedHref = href;
-
-    // Resolve asset path if post_asset_folder is enabled
     if (postPath && hexo.config.post_asset_folder) {
       const PostAsset = hexo.model('PostAsset');
       const asset = PostAsset.findById(join(postPath, href.replace(/\\/g, '/')));
@@ -40,69 +97,71 @@ function resolveImagesInContent(content, postPath, hexo) {
         resolvedHref = asset.path.replace(/\\/g, '/');
       }
     }
-
-    // Apply hexo's url_for
     resolvedHref = hexo.extend.helper.get('url_for').call(hexo, resolvedHref);
-
     return `<img src="${resolvedHref}" alt="${alt}">`;
   });
 }
 
+function renderMarkdown(text, hexo) {
+  if (!text) return '';
+  let rendered = hexo.render.renderSync({ text: text, engine: 'markdown' });
+  return rendered;
+}
+
+function renderInlineMarkdown(text, hexo) {
+  if (!text) return '';
+  let rendered = hexo.render.renderSync({ text: text, engine: 'markdown' });
+  // Unwrap outer <p>...</p> for inline use
+  rendered = rendered.replace(/^<p>/, '').replace(/<\/p>\n?$/, '');
+  return rendered;
+}
+
 function convertCallouts(text, postPath, hexo) {
-  return text.replace(calloutRegex, (match, type, sameLineContent, quoteContent) => {
+  return text.replace(calloutRegex, (match, type, fold, title, quoteContent) => {
     const normalizedType = type.toLowerCase();
-    const iconMap = {
-      'quote': '"',
-      'note': '📝',
-      'tip': '💡',
-      'warning': '⚠️',
-      'danger': '🚨',
-      'info': 'ℹ️',
-      'success': '✅'
-    };
-    const icon = iconMap[normalizedType] || '"';
-    const title = sameLineContent.trim() || (normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1));
 
-    const cleanContent = quoteContent
-      .split('\n')
-      .map(line => line.replace(/^>\s?/, ''))
-      .join('\n')
-      .trim();
+    let cleanContent = '';
+    if (quoteContent) {
+      cleanContent = quoteContent
+        .split('\n')
+        .map(line => line.replace(/^>\s?/, ''))
+        .join('\n')
+        .trim();
+    }
 
-    // Resolve image paths in callout content
-    const contentWithResolvedImages = resolveImagesInContent(cleanContent, postPath, hexo);
+    const contentWithImages = cleanContent
+      ? resolveImagesInContent(cleanContent, postPath, hexo)
+      : '';
 
-    // Wrap content in paragraph tags (simple markdown-like parsing)
-    const renderedContent = contentWithResolvedImages
-      .split('\n\n')
-      .map(p => p.trim())
-      .filter(p => p)
-      .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
-      .join('\n');
+    const displayTitle = renderInlineMarkdown(title.trim(), hexo)
+      || (normalizedType.charAt(0).toUpperCase() + normalizedType.slice(1));
+    const renderedContent = renderMarkdown(contentWithImages, hexo);
 
-    return `<blockquote class="callout callout-${normalizedType}">
-<div class="callout-title">${icon} ${title}</div>
+    const foldClass = fold ? ` callout-fold-${fold === '-' ? 'closed' : 'open'}` : '';
+
+    return `<blockquote class="callout callout-${normalizedType}${foldClass}">
+<div class="callout-title">${displayTitle}</div>
 <div class="callout-content">${renderedContent}</div>
-</blockquote>\n`;
+</blockquote>\n\n`;
   });
 }
+
+// ------------------------------------------------------------------
+// Hexo filters
+// ------------------------------------------------------------------
 
 hexo.extend.filter.register('before_post_render', (data) => {
   if (!data.content) return data;
 
-  // Get post asset path
   const { source_dir } = hexo.config;
   let postPath = '';
   if (data.source) {
-    const source = data.source.substring(source_dir.length).replace(/\\/g, '/');
     const postSource = data.source;
     postPath = join(source_dir, dirname(postSource), basename(postSource, extname(postSource)));
   }
 
-  // Protect math blocks first
-  data.content = protectMathBlocks(data.content);
+  data.content = protectMath(data.content);
 
-  // Process callouts
   if (data.content.indexOf('[!') !== -1) {
     data.content = convertCallouts(data.content, postPath, hexo);
   }
@@ -113,8 +172,7 @@ hexo.extend.filter.register('before_post_render', (data) => {
 hexo.extend.filter.register('after_post_render', (data) => {
   if (!data.content) return data;
 
-  // Restore math blocks after rendering
-  data.content = unprotectMathBlocks(data.content);
+  data.content = unprotectMath(data.content);
 
   return data;
 });

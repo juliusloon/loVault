@@ -1,3 +1,32 @@
+// Layout toggle
+.gallery-layout-toggle
+    display flex
+    justify-content flex-end
+    margin-top $margin-primary
+    margin-bottom $margin-l-0
+
+.layout-pill
+    display inline-flex
+    border $line-third solid $color-text-primary
+    overflow hidden
+
+.layout-btn
+    border none
+    background transparent
+    padding $margin-s-2 $margin-m-2
+    cursor pointer
+    text-style(post-tag)
+    color $color-text-primary
+    transition background-color 0.2s ease, color 0.2s ease
+
+    &:hover:not(.active)
+        background-color $color-text-fourth
+
+    &.active
+        background-color $color-text-primary
+        color $color-background
+
+// Gallery list
 .post-gallery-list
     .h-line-secondary
         margin-top $margin-m-1
@@ -5,6 +34,7 @@
     .h-line-secondary:last-child
         display none
 
+// Single (default) — original left/right layout
 .post-gallery-item
     display flex
     margin-top $margin-primary
@@ -27,13 +57,41 @@
 
     a 
         underline-motion(link)
-    
+
+// Double column layout — two cards per row, each with info top / image bottom
+.post-gallery.layout-double
+    .post-gallery-list
+        display flex
+        flex-wrap wrap
+        gap $margin-l-0
+        margin-top $margin-primary
+
+    .post-gallery-item
+        width 'calc(50% - %s / 2)' % $margin-l-0
+        margin-top 0
+        margin-bottom 0
+        flex-direction column
+        .post-info
+            width 100%
+            margin-right 0
+            margin-bottom $margin-m-1
+        .post-img
+            width 100%
+
+    .h-line-secondary
+        display none
+
+// Mobile
 @media (max-width: 480px)
     .post-gallery-item
         flex-wrap wrap
         .post-info
             width 100%
+            margin-right 0
         .post-img
             width 100%
             margin-top $margin-m-1
 
+    .post-gallery.layout-double
+        .post-gallery-item
+            width 100%
