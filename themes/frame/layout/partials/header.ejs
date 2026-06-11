@@ -4,7 +4,8 @@
       <div class="site-brand-container">
         <a href="<%= url_for()%>">
           <% if (theme.logo_image.enable) {%>
-            <img class="logo-img" src="<%= url_for(theme.logo_image.image_path)%>" alt="logo_image">
+            <img class="logo-img logo-light" src="<%= url_for(theme.logo_image.image_path)%>" alt="logo_image">
+            <img class="logo-img logo-dark" src="<%= url_for(theme.logo_image.dark_path || '/logo-dark.png')%>" alt="logo_image">
           <%} else {%>
             <%= theme.site_brand_name %>
           <% } %>
@@ -28,7 +29,24 @@
           <% }); %>
           <% if (theme.local_search.enable) {%>
             <li class="menu-item search-btn">
-              <a href="#">Search</a>
+              <a href="#">搜索</a>
+            </li>
+          <% } %>
+          <% if (theme.theme_toggle.enable !== false) {%>
+            <li class="menu-item">
+              <button id="theme-toggle-btn" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+              </button>
+            </li>
+          <% } %>
+          <% if (theme.font_toggle.enable !== false) {%>
+            <li class="menu-item">
+              <button id="font-toggle-btn" class="font-toggle" onclick="toggleFont()" aria-label="Toggle font" title="Toggle font">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="4" y1="4" x2="20" y2="4"></line>
+                  <line x1="12" y1="4" x2="12" y2="20"></line>
+                </svg>
+              </button>
             </li>
           <% } %>
         </ul>

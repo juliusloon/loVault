@@ -77,3 +77,36 @@
         
 
     
+
+.theme-toggle,
+.font-toggle
+    background none
+    border none
+    padding 0
+    margin 0
+    cursor pointer
+    color $color-text-primary
+    display inline-flex
+    align-items center
+    justify-content center
+    line-height 1
+    font inherit
+
+    svg
+        display block
+        vertical-align middle
+
+    &:hover
+        opacity 0.7
+
+    &:focus
+        outline none
+
+.logo-dark
+    display none
+
+[data-theme="dark"]
+    .logo-light
+        display none
+    .logo-dark
+        display block

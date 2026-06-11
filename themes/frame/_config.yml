@@ -1,18 +1,25 @@
 
 # html lang
-language: en
+language: cn
 
 # header
-site_brand_name: Julivault
+site_brand_name: loVault
 
 logo_image:
   enable: true
-  image_path: /logo.png # path to your logo image
+  image_path: /logo.png # path to your logo image (light mode)
+  dark_path: /logo-dark.png # path to your dark mode logo image
+
+# font toggle button (serif / sans-serif)
+font_toggle:
+  enable: true
+  sans_label: 'Inter + Noto Sans SC'
+  serif_label: 'Lora + Source Han Serif'
 
 menu:
-  Home: /
-  Archive: /archives/
-  Gallery: /categories/gallery/
+  主页: /
+  归档: /archives/
+  画廊: /categories/gallery/
 
 # stylesheets loaded in the <head>
 stylesheets:
@@ -29,13 +36,14 @@ date_format: MMM D, YYYY
 
 # profile
 profile:
-  title: Hi, this is Julius. 
-  body: Retrace my academic path at ZJU.
+  title: 你好，我是 Julius。
+  body: 欢迎你来到这里。
   image: /profile_cover.png
 
   links:
-    Home: /
-    Blogs: /archives/
+    给我发邮件: mailto:suhzin@outlook.com
+    我的微信: copy:Ridflinb7
+    CC98 主帖: https://www.cc98.org/topic/6410055
 
 # footer
 footer:
@@ -46,12 +54,17 @@ footer:
   powered_by: # Powered by Hexo & Frame
     enable: true
 
+
   other_info:
     enable: true
-    content: 'Go Beyond the Way - | E-mail: suhzin@outlook.com'
+    content: "<i>I'm Tantalus, can't help but reach out and touch...</i>"
 
-# color mode: default / classic / dark
-color_mode: default
+# color mode: default / classic / dark / auto (auto supports light/dark toggle)
+color_mode: auto
+
+# theme toggle button
+theme_toggle:
+  enable: true
 
 # mathjax setting
 # note: need to install the hexo plugin for math: https://github.com/hexojs/hexo-math
@@ -76,7 +89,7 @@ disqus: # disqus setup guide: https://help.disqus.com/en/articles/1717056-publis
 local_search:
   enable: true
   path: search.json
-  place_holder: Search Anything
+  place_holder: 支持文件名称与内容查找 :)
   trigger: auto # auto: trigger search whenever input changes
   top_n_per_article: -1 # show top n results per article, show all results by setting to -1
   unescape: false # unescape html strings to the readable one

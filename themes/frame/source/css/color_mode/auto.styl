@@ -1,0 +1,72 @@
+// Auto color mode: supports light/dark via CSS custom properties
+// Toggle via data-theme attribute or system prefers-color-scheme
+
+// ===== CSS Custom Properties =====
+:root
+  --color-text-primary: #373633
+  --color-text-secondary: #AFAEA9
+  --color-text-third: #E8E8E8
+  --color-text-fourth: #EFEFEF
+  --color-background: #ffffff
+  --color-code-background: #F4F4F4
+  --color-code-highlight: #0177AA
+  --color-code-default: #7D7C78
+  --color-code-marker: #BABABA
+  --color-search-marker: #FFF59B
+  --color-overlay: rgba(0, 0, 0, 0.2)
+
+@media (prefers-color-scheme: dark)
+  :root
+    --color-text-primary: #d5d5d5
+    --color-text-secondary: #6C6C6C
+    --color-text-third: #838383
+    --color-text-fourth: #414141
+    --color-background: #202020
+    --color-code-background: #AFAFAF
+    --color-code-highlight: #60CFFF
+    --color-code-default: #d5d5d5
+    --color-code-marker: #BDBDBD
+    --color-search-marker: #756D29
+    --color-overlay: rgba(0, 0, 0, 0.8)
+
+[data-theme="light"]
+  --color-text-primary: #373633
+  --color-text-secondary: #AFAEA9
+  --color-text-third: #E8E8E8
+  --color-text-fourth: #EFEFEF
+  --color-background: #ffffff
+  --color-code-background: #F4F4F4
+  --color-code-highlight: #0177AA
+  --color-code-default: #7D7C78
+  --color-code-marker: #BABABA
+  --color-search-marker: #FFF59B
+  --color-overlay: rgba(0, 0, 0, 0.2)
+
+[data-theme="dark"]
+  --color-text-primary: #d5d5d5
+  --color-text-secondary: #6C6C6C
+  --color-text-third: #838383
+  --color-text-fourth: #414141
+  --color-background: #202020
+  --color-code-background: #AFAFAF
+  --color-code-highlight: #60CFFF
+  --color-code-default: #d5d5d5
+  --color-code-marker: #BDBDBD
+  --color-search-marker: #756D29
+  --color-overlay: rgba(0, 0, 0, 0.8)
+
+// ===== Map Stylus variables to CSS custom properties =====
+$color-text-primary = var(--color-text-primary)
+$color-text-secondary = var(--color-text-secondary)
+$color-text-third = var(--color-text-third)
+$color-text-fourth = var(--color-text-fourth)
+$color-background = var(--color-background)
+$color-code-background = var(--color-code-background)
+$color-code-highlight = var(--color-code-highlight)
+$color-code-default = var(--color-code-default)
+$color-code-marker = var(--color-code-marker)
+$color-search-marker = var(--color-search-marker)
+$color-overlay = var(--color-overlay)
+
+// ===== Code highlight =====
+@import "../highlight/auto-highlight.styl"

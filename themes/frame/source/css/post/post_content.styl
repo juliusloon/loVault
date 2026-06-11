@@ -81,66 +81,66 @@ blockquote
 
     &.callout-quote
         border-left-color #6a9955
-        background rgba(106, 153, 85, 0.1)
+        background rgba(#6a9955, 0.1)
 
     &.callout-note
         border-left-color #4a90d9
-        background rgba(74, 144, 217, 0.1)
+        background rgba(#4a90d9, 0.1)
 
     &.callout-tip
         border-left-color #dcdcaa
-        background rgba(220, 220, 170, 0.1)
+        background rgba(#dcdcaa, 0.1)
 
     &.callout-warning
         border-left-color #ce9178
-        background rgba(206, 145, 120, 0.1)
+        background rgba(#ce9178, 0.1)
 
     &.callout-danger
         border-left-color #f14c4c
-        background rgba(241, 76, 76, 0.1)
+        background rgba(#f14c4c, 0.1)
 
     &.callout-info
         border-left-color #4a90d9
-        background rgba(74, 144, 217, 0.1)
+        background rgba(#4a90d9, 0.1)
 
     &.callout-success
         border-left-color #6a9955
-        background rgba(106, 153, 85, 0.1)
+        background rgba(#6a9955, 0.1)
 
     &.callout-question
         border-left-color #9b72cf
-        background rgba(155, 114, 207, 0.1)
+        background rgba(#9b72cf, 0.1)
 
     &.callout-important
         border-left-color #d9730d
-        background rgba(217, 115, 13, 0.1)
+        background rgba(#d9730d, 0.1)
 
     &.callout-caution
         border-left-color #f5a623
-        background rgba(245, 166, 35, 0.1)
+        background rgba(#f5a623, 0.1)
 
     &.callout-abstract
     &.callout-summary
     &.callout-tldr
         border-left-color #0db7d6
-        background rgba(13, 183, 214, 0.1)
+        background rgba(#0db7d6, 0.1)
 
     &.callout-todo
         border-left-color #4a90d9
-        background rgba(74, 144, 217, 0.1)
+        background rgba(#4a90d9, 0.1)
 
     &.callout-example
         border-left-color #6a9955
-        background rgba(106, 153, 85, 0.1)
+        background rgba(#6a9955, 0.1)
 
     &.callout-bug
         border-left-color #f14c4c
-        background rgba(241, 76, 76, 0.1)
+        background rgba(#f14c4c, 0.1)
 
     &.callout-fail
     &.callout-failure
         border-left-color #f14c4c
-        background rgba(241, 76, 76, 0.1)
+        background rgba(#f14c4c, 0.1)
 
     // Ensure markdown emphasis inside callouts renders correctly
     .callout-content
@@ -197,3 +197,19 @@ dl
         margin 0
 
             
+
+// KaTeX display: horizontal scroll for long equations
+.katex-display
+    overflow-x auto
+    padding-bottom 0.5em
+    // Ensure scrollbar is thin and unobtrusive
+    &::-webkit-scrollbar
+        height 4px
+    &::-webkit-scrollbar-track
+        background transparent
+    &::-webkit-scrollbar-thumb
+        background $color-text-secondary
+        border-radius 2px
+    // Firefox
+    scrollbar-width thin
+    scrollbar-color $color-text-secondary transparent

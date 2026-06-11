@@ -43,6 +43,59 @@ if (is_archive()){
 <%# font %>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto+Mono&display=swap');
+
+    /* Lora (serif latin) */
+    @font-face {
+        font-family: 'Lora';
+        src: url('<%- url_for("/fonts/lora/Lora-Regular-7.ttf") %>') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Lora';
+        src: url('<%- url_for("/fonts/lora/Lora-Italic-4.ttf") %>') format('truetype');
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Lora';
+        src: url('<%- url_for("/fonts/lora/Lora-Medium-5.ttf") %>') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Lora';
+        src: url('<%- url_for("/fonts/lora/Lora-MediumItalic-6.ttf") %>') format('truetype');
+        font-weight: 500;
+        font-style: italic;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Lora';
+        src: url('<%- url_for("/fonts/lora/Lora-Bold-2.ttf") %>') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Lora';
+        src: url('<%- url_for("/fonts/lora/Lora-BoldItalic-3.ttf") %>') format('truetype');
+        font-weight: 700;
+        font-style: italic;
+        font-display: swap;
+    }
+
+    /* Source Han Serif VF (serif CJK) */
+    @font-face {
+        font-family: 'Source Han Serif VF';
+        src: url('<%- url_for("/fonts/source-hans-serif/Source Han Serif VF.otf") %>') format('opentype');
+        font-weight: 600 900;
+        font-style: normal;
+        font-display: swap;
+    }
 </style>
 
 <%# css list %>

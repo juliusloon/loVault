@@ -1,0 +1,149 @@
+// Auto code highlight: light=solarized-light, dark=rainbow (dark)
+
+// Light theme (default / data-theme=light)
+[data-theme="light"] .highlight,
+:root:not([data-theme="dark"]) .highlight
+  color: #657b83
+  table
+    background: #fdf6e3
+  .code
+    .comment,
+    .quote
+      color: #93a1a1
+
+    .keyword,
+    .selector-tag,
+    .addition
+      color: #859900
+
+    .number,
+    .string,
+    .meta .meta-string,
+    .literal,
+    .doctag,
+    .regexp
+      color: #2aa198
+
+    .title,
+    .section,
+    .name,
+    .selector-id,
+    .selector-class
+      color: #268bd2
+
+    .attribute,
+    .attr,
+    .variable,
+    .template-variable,
+    .class .title,
+    .type
+      color: #b58900
+
+    .symbol,
+    .bullet,
+    .subst,
+    .meta,
+    .meta .keyword,
+    .selector-attr,
+    .selector-pseudo,
+    .link
+      color: #cb4b16
+
+    .built_in,
+    .deletion
+      color: #dc322f
+
+    .formula
+      background: #eee8d5
+
+    .emphasis
+      font-style: italic
+
+    .strong
+      font-weight: bold
+
+// Dark theme (data-theme=dark or system dark)
+[data-theme="dark"] .highlight
+  background: #474949
+  color: #d1d9e1
+
+  .code
+    .comment, .quote
+      color: #969896
+      font-style: italic
+
+    .keyword, .selector-tag, .literal, .type, .addition
+      color: #cc99cc
+
+    .number, .selector-attr, .selector-pseudo
+      color: #f99157
+
+    .string, .doctag, .regexp
+      color: #8abeb7
+
+    .title, .name, .section, .built_in
+      color: #b5bd68
+
+    .variable, .template-variable, .selector-id, .class .title
+      color: #ffcc66
+
+    .section, .name, .strong
+      font-weight: bold
+
+    .symbol, .bullet, .subst, .meta, .link
+      color: #f99157
+
+    .deletion
+      color: #dc322f
+
+    .formula
+      background: #eee8d5
+
+    .attr, .attribute
+      color: #81a2be
+
+    .emphasis
+      font-style: italic
+
+@media (prefers-color-scheme: dark)
+  :root:not([data-theme="light"]) .highlight
+    background: #474949
+    color: #d1d9e1
+
+    .code
+      .comment, .quote
+        color: #969896
+        font-style: italic
+
+      .keyword, .selector-tag, .literal, .type, .addition
+        color: #cc99cc
+
+      .number, .selector-attr, .selector-pseudo
+        color: #f99157
+
+      .string, .doctag, .regexp
+        color: #8abeb7
+
+      .title, .name, .section, .built_in
+        color: #b5bd68
+
+      .variable, .template-variable, .selector-id, .class .title
+        color: #ffcc66
+
+      .section, .name, .strong
+        font-weight: bold
+
+      .symbol, .bullet, .subst, .meta, .link
+        color: #f99157
+
+      .deletion
+        color: #dc322f
+
+      .formula
+        background: #eee8d5
+
+      .attr, .attribute
+        color: #81a2be
+
+      .emphasis
+        font-style: italic

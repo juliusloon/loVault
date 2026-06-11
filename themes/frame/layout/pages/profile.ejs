@@ -13,9 +13,23 @@
         </div>
         <% Object.keys(theme.profile.links).forEach(key => { %>
             <div class="profile-link">
-                <a href="<%= url_for(theme.profile.links[key])%>"><%=key%></a> 
+                <a href="<%= url_for(theme.profile.links[key])%>"
+                    class="<%= String(theme.profile.links[key]).startsWith('copy:') ? 'copy-link' : '' %>"
+                    data-copy="<%= String(theme.profile.links[key]).startsWith('copy:') ? theme.profile.links[key].substring(5) : '' %>">
+                    <%=key%>
+                </a>
             </div>           
         <% }); %>
     </div>
     
 </div>
+
+<script>
+    document.querySelectorAll('.copy-link').forEach(el => {
+        el.onclick = e => {
+            e.preventDefault();
+            navigator.clipboard.writeText(el.dataset.copy);
+            console.log('其实你的剪贴板已经听到了神的名讳...hehe...'); 
+        };
+    });
+</script>
